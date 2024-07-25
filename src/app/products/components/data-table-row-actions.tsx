@@ -19,7 +19,7 @@ export function DataTableRowActions<TData>({
 }: DataTableRowActionsProps<TData>) {
 
   return (
-    <>
+    <div className="flex items-center justify-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -46,6 +46,6 @@ export function DataTableRowActions<TData>({
           </Button> */}
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+    </div>
   );
 }

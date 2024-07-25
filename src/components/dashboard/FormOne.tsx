@@ -51,7 +51,7 @@ const onSubmit = async(data:any) => {
   return (
     <div>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Input type="file" name="picture" />
+        <Input {...register('picture')} type="file" name="picture" />
         <button type="submit">Upload</button>
       </form>
     </div>

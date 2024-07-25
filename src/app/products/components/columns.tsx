@@ -26,10 +26,10 @@ export const columns: ColumnDef<atparProductsType>[] = [
     accessorKey: "longDescription",
     header: "Long Description",
   },
-  {
-    accessorKey: "thumbnailImagePath",
-    header: "Thumbnail Image Path",
-  },
+  // {
+  //   accessorKey: "thumbnailImagePath",
+  //   header: "Thumbnail Image Path",
+  // },
   {
     accessorKey: "actions",
     header: () => (

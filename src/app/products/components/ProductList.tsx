@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 
+
 const ProductsList = ({ products }: { products: atparProductsType[] }) => {
   const [open, setOpen] = useState(false);
 
