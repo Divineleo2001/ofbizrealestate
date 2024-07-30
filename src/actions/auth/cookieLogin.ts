@@ -1,11 +1,16 @@
-"use server"
+"use server";
 
-import { StoreTokenRequest } from "@/types"
-import { cookies } from "next/headers"
+import { StoreTokenRequest } from "@/types";
+import { cookies } from "next/headers";
 
-export async function cookieLogin({token}: {token: string}) {
-    cookies().set({
-      name: "token",
-      value: token,
-    });
+export async function cookieLogin({ token }: { token: string }) {
+  cookies().set({
+    name: "token",
+    value: token,
+  });
+  if (token) {
+    return true;
+  } else {
+    return false;
   }
+}

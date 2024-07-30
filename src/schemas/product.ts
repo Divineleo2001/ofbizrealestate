@@ -1,18 +1,22 @@
 import { z } from "zod";
 
+export const AtparproductSchema = z.object({
+  longDescription: z.string().optional(),
+  description: z.string().optional(), // Optional to match your provided data
+  atparProductType: z.string().optional(),
+  atparProductId: z.string().optional(),
+  lastUpdatedStamp: z.string().optional(),
+  productId: z.string().optional(),
+  createdTxStamp: z.string().optional(),
+  createdStamp: z.string().optional(),
+  lastUpdatedTxStamp: z.string().optional(),
+  thumbnailImagePath: z.string().optional(),
+  introductionDate: z.string().optional(),
+  atparProductInternalName: z.string().optional(),
+  atparProductCategoryId: z.string().optional(),
+  status: z.string().optional(),
+});
 
-const productCreationSchema = z.object({
-    productId: z.string(),
-    productTypeId : z.string(),
-    internalname: z.string(),
-    upload_file: z.string(),
-    upload_file_file: z.string(),
-    _upload_file_fileName: z.string(),
-    _upload_file_contentType: z.string(),
-    longDescription: z.string(),
-    status: z.string(),
-    introductionDate: z.string(),
-    primaryProductCategoryId: z.string(),
- })
 
- export { productCreationSchema }
+
+// create a JSON Body

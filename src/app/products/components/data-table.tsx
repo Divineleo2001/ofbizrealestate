@@ -1,9 +1,16 @@
 "use client";
 import {
   ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+  VisibilityState,
   flexRender,
   getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import {
@@ -16,8 +23,8 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { DataTablePagination } from "@/components/shared/data-table-pagination";
-
-
+import { DataTableToolbar } from "./data-table-toolbar";
+import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -30,18 +37,41 @@ export function DataTable<TData, TValue>({
   data,
   openModal,
 }: DataTableProps<TData, TValue>) {
- 
+  const [rowSelection, setRowSelection] = useState({});
+  const [columnVisibility, setColumnVisibility] =
+    useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+    []
+  );
+  const [sorting, setSorting] = useState<SortingState>([]);
   const table = useReactTable({
     data,
     columns,
-    getPaginationRowModel: getPaginationRowModel(),
+    state: {
+      sorting,
+      columnVisibility,
+      rowSelection,
+      columnFilters,
+    },
+    enableRowSelection: true,
+    onRowSelectionChange: setRowSelection,
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
   });
-
-  
 
   return (
     <div>
+      <div className="mb-10">
+
+      <DataTableToolbar table={table} /> 
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -109,7 +139,7 @@ const EmptyState = ({ openModal }: { openModal: any }) => {
       </p>
       <div className="mt-6">
         <Button onClick={() => openModal()}>
-            add
+          add
           {/* <PlusIcon className="h-4" /> New Patient{" "} */}
         </Button>
       </div>

@@ -1,5 +1,4 @@
 import { fileSchema, signInSchema } from "@/schemas/authSchemas";
-import { productCreationSchema } from "@/schemas/product";
 import * as z from "zod";
 
 declare type StoreTokenRequest = {
@@ -10,7 +9,38 @@ declare type signInForm = z.infer<typeof signInSchema>;
 
 declare type fileForm = z.infer<typeof fileSchema>;
 
+declare type Productstype = {
 
+  createdStamp: string;
+  mediumImageUrl: string;
+  productName: string;
+  originalImageUrl: string;
+  inShippingBox: string;
+  detailImageUrl: string;
+  billOfMaterialLevel: string;
+  lotIdFilledIn: string;
+  createdByUserLogin: string;
+  requireAmount: string;
+  productId: string;
+  smallImageUrl: string;
+  primaryProductCategoryId: string;
+  createdTxStamp: string;
+  lastUpdatedTxStamp: string;
+  isVirtual: string;
+  amountUomTypeId: string;
+  internalName: string;
+  lastModifiedByUserLogin: string;
+  inventoryItemTypeId: string;
+  lastUpdatedStamp: string;
+  lastModifiedDate: string;
+  orderDecimalQuantity: string;
+  productTypeId: string;
+  createdDate: string;
+  isVariant: string;
+  largeImageUrl: string;
+
+
+}
 
 declare type atparProductsType = {
   longDescription: string;
@@ -22,7 +52,7 @@ declare type atparProductsType = {
   createdTxStamp: string;
   createdStamp: string;
   lastUpdatedTxStamp: string;
-  thumbnailImagePath: string;
+  thumbnailImagePath: string | undefined;
   introductionDate: string;
   atparProductInternalName: string;
   atparProductCategoryId: string;
@@ -43,8 +73,6 @@ declare type atparProductsCreation = {
   introductionDate: string;
   primaryProductCategoryId: string;
 }
-
-declare type ProductsCreationTypes = z.infer<typeof productCreationSchema>;
 
 
 declare type ProductCategory = {

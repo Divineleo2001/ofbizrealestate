@@ -3,6 +3,7 @@ import { atparProductsType } from "@/types";
 import React, { useState } from "react";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
+import { ToastSimple } from "./ToastDemo";
 
 
 const ProductsList = ({ products }: { products: atparProductsType[] }) => {
@@ -17,6 +18,7 @@ const ProductsList = ({ products }: { products: atparProductsType[] }) => {
   };
   return (
     <div>
+
       {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
       <DataTable
         columns={columns}
