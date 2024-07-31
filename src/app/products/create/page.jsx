@@ -25,7 +25,7 @@ const Page = async () => {
   const productstype = result1;
   const productscategory = result2;
 
-  // JSON.parse(JSON.stringify(sampleData))\
+
 
   const productstypeId = productstype.map((product) => product.productTypeId);
 
@@ -42,11 +42,6 @@ const Page = async () => {
         productscategoryId={productscategoryId}
         productstypeId={productstypeId}
       />
-      {/* <ProductsCreate
-          productscategoryId={productscategoryId}
-          productstypeId={productstypeId}
-        /> */}
-      {/* <SignIn /> */}
     </Suspense>
   );
 };

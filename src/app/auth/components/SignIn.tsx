@@ -48,7 +48,7 @@ const SignIn = () => {
         const IfTokenSet = await cookieLogin({ token: access_token });
 
         if (IfTokenSet === true && response.statusCode === 200) {
-          // router.push("/products");
+          router.push("/products");
           console.log("access token set in cookies");
         } else {
           console.log("access token not set in cookies");

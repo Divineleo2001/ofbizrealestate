@@ -1,5 +1,3 @@
-// can you provide me the boiler plate code for the layout.tsx
-
 import { Navbar } from "@/components/shared/Navbar";
 
 export default function DashboardLayout({
@@ -9,7 +7,7 @@ export default function DashboardLayout({
 }) {
   return (
     <section>
-      <Navbar children={children} />
+      <Navbar>{children}</Navbar>
     </section>
   );
 }

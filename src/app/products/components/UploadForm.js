@@ -51,10 +51,9 @@ const UploadForm = ({ products }) => {
       };
       console.log(formData);
 
-      const result = await UploadProduct(formData)
-      console.log(result )
+      const result = await UploadProduct(formData);
       setResult(result);
-
+      console.log(result)
     } catch (error) {
       console.error("Error creating product:", error);
     }
@@ -80,9 +79,7 @@ const UploadForm = ({ products }) => {
           <Card className="w-full max-w-5xl mx-auto">
             <CardHeader>
               <CardTitle className="text-2xl">Upload File</CardTitle>
-              <CardDescription>
-                Add a file to the system
-              </CardDescription>
+              <CardDescription>Add a file to the system</CardDescription>
             </CardHeader>
             <CardContent>
               <FormField

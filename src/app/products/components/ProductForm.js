@@ -58,7 +58,6 @@ const ProductForm = ({ createProduct, productscategoryId, productstypeId }) => {
       };
       const result = await createProduct(formData);
 
-      console.log(result);
       setResult(result);
     } catch (error) {
       console.error("Error creating product:", error);

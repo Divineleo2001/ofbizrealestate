@@ -1,9 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
 
-const userAuthToken = cookies().get("token");
-const token = userAuthToken?.value;
-
 const ProductCreateUrl =
   process.env.BACKEND_URL + "/rest/services/createAtparProductByEvents";
 const productUrl = process.env.BACKEND_URL + "/rest/services/newPerformFind";
@@ -12,7 +9,8 @@ const ProductUploadUrl =
   process.env.BACKEND_URL + "/rest/services/createProductContentSimple";
 
 export async function createProduct(formData) {
-  console.log(formData);
+  const userAuthToken = cookies().get("token");
+  const token = userAuthToken?.value;
   const response = await fetch(ProductCreateUrl, {
     method: "POST",
     headers: {
@@ -30,6 +28,8 @@ export async function createProduct(formData) {
 }
 
 export const getProduct = async () => {
+  const userAuthToken = cookies().get("token");
+  const token = userAuthToken?.value;
   const params = {
     inParams: JSON.stringify({
       inputFields: {},
@@ -53,14 +53,16 @@ export const getProduct = async () => {
 };
 
 export const UploadProduct = async (formData) => {
-  console.log(formData);
-
+  const userAuthToken = cookies().get("token");
+  const token = userAuthToken?.value;
   const response = await fetch(ProductUploadUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: formData,
+    body: JSON.stringify(formData),
   });
+
+  return response.json();
 };
