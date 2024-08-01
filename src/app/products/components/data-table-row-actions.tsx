@@ -78,7 +78,7 @@ export function DataTableRowActions<TData>({
           >
             Approve
           </DropdownMenuItem>
-          <DropdownMenuItem
+          {/* <DropdownMenuItem
             // programitacallly disable
             className="hover:cursor-pointer flex justify-center "
             onClick={() => {
@@ -86,7 +86,7 @@ export function DataTableRowActions<TData>({
             }}
           >
            Upload
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           {/* <Button disabled={!templateditEligibility} onClick={() => setOpenReportTemplateEditor(true)}>
             {templateditEligibility
               ? templateReportTobefilled

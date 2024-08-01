@@ -18,6 +18,7 @@ import { defaultLinks } from "@/config/nav";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import SignOut from "./SignOut";
+import Image from "next/image";
 // import SignOut from "../shared/SignOut";
 
 export interface SidebarLink {
@@ -87,18 +88,27 @@ export function Navbar({ children }: { children?: React.ReactNode }) {
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link
-              href="/products"
-              className="flex items-center gap-2 font-semibold"
-            >
-              <span className="">Products Management</span>
-            </Link>
-            {/* <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
+          <Link href="/products">
+            <div className="flex flex-col  border-b py-1 pl-5 mb-5 mt-4 ">
+              <div>
+                <Image
+                  src="/Aurigraph.png"
+                  alt="logo"
+                  width={200}
+                  height={200}
+                />
+              </div>
+              <div
+              className="text-xl font-bold text-blue-900 text-left"
+              >
+                Admin Portal
+              </div>
+              {/* <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
                 <Bell className="h-4 w-4" />
                 <span className="sr-only">Toggle notifications</span>
-              </Button> */}
-          </div>
+                </Button> */}
+            </div>
+          </Link>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <SidebarLinkGroup links={defaultLinks} />

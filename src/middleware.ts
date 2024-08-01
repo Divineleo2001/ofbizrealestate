@@ -6,8 +6,12 @@ export function middleware(request: NextRequest) {
 
   const isPublicPath = path === "/auth";
   const isRootPath = path === "/products";
-
   const token = request.cookies.get("token")?.value || "";
+
+  // Redirect to /auth for any path that includes "/"
+  if (path === "/") {
+    return NextResponse.redirect(new URL("/auth", request.nextUrl));
+  }
 
   // Handle redirection logic
   if (isPublicPath && token) {

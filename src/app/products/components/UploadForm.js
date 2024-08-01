@@ -87,7 +87,7 @@ const UploadForm = ({ products }) => {
                 name=""
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>Primary Product Category Id</FormLabel>
+                    <FormLabel>Primary Product ID</FormLabel>
                     <FormControl>
                       <Select
                         onValueChange={(value) => {
@@ -96,7 +96,7 @@ const UploadForm = ({ products }) => {
                         value={field.value}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select the Category"></SelectValue>
+                          <SelectValue placeholder="Select the ID"></SelectValue>
                         </SelectTrigger>
                         <SelectContent>
                           {products.map((item) => (

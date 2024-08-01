@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 const ProductCreateUrl =
@@ -8,6 +9,8 @@ const productUrl = process.env.BACKEND_URL + "/rest/services/newPerformFind";
 const ProductUploadUrl =
   process.env.BACKEND_URL + "/rest/services/createProductContentSimple";
 
+
+const revalidateProductsPage = () => revalidatePath("/products");
 export async function createProduct(formData) {
   const userAuthToken = cookies().get("token");
   const token = userAuthToken?.value;
@@ -19,6 +22,9 @@ export async function createProduct(formData) {
     },
     body: JSON.stringify(formData),
   });
+
+  revalidateProductsPage();
+
 
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);

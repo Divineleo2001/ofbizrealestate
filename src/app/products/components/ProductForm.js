@@ -58,6 +58,10 @@ const ProductForm = ({ createProduct, productscategoryId, productstypeId }) => {
       };
       const result = await createProduct(formData);
 
+      const res = result.JSON()
+
+      console.log(res.statusCode);
+
       setResult(result);
     } catch (error) {
       console.error("Error creating product:", error);

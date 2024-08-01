@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SignIn from "./SignIn";
+import Image from "next/image";
 
 const AuthPage = () => {
   return (
@@ -19,7 +20,15 @@ const AuthPage = () => {
         <div className="flex items-center justify-center pt-12">
           <div className="mx-auto grid w-[350px] gap-6">
             <div className="grid gap-2 text-center">
-              <h1 className="text-5xl capitalize font-bold ">Ofbiz</h1>
+              <div>
+                <Image
+                  src="/Aurigraph.png"
+                  alt="logo"
+                  width={700}
+                  height={200}
+                />
+              </div>
+              {/* <h1 className="text-5xl capitalize font-bold ">AuriGraph</h1> */}
               <p className="text-balance text-muted-foreground">
                 Trying it to make it better than yesterday and but less than
                 tommorow
